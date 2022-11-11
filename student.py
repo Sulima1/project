@@ -14,7 +14,10 @@ class Student:
       #  and studentID, name, course2, finalGrade2 on a separate line.
 ##TODO: implement getter methods. these will be used in main.py
     def __str__(self):
-        return 0
+
+        output = str(self.name + self.studentID + self.course1 + Student.calcFinalGrade1(self) + "\n" + self.name + self.studentID + self.course2 + Student.calcFinalGrade2(self))
+
+        return output
         
        
     def getName(self):
@@ -34,7 +37,21 @@ class Student:
     ##the following: (test,1,2,3) 3x20% + (final exam) 40% = 100%.
     def calcFinalGrade1(self):
         
-        return 0
+        grades = self.testGrades1.split(', ')
+        assignments = float(sum(grades[:2])) * 0.3
+        finalExam = float(grades[3]) * 0.4
+
+        finalGrade = assignments + finalExam
+
+        return finalGrade
+
     def calcFinalGrade2(self):
-        return 0
+        grades = self.testGrades2.split(',')
+        assignments = float(sum(grades[:2])) * 0.3
+        finalExam = float(grades[3]) * 0.4
+
+        finalGrade = assignments + finalExam
+
+        return finalGrade
+
 print(parseFiles())
